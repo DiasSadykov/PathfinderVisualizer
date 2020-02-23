@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Pathfinding Visualizer</title>
+    <script src="index.js" charset="utf-8"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <nav class="navbar  navbar-expand-sm bg-dark navbar-dark">
+      <a class="navbar-brand" href="#">AwesomePathfinder</a>
+      <form class="form-inline mr-3">
+        <div class="input-group">
+          <select class="custom-select" id="algoPicker" >
+            <option value="bfs">BFS</option>
+            <option value="dfs">DFS</option>
+            <option value="astar">A*</option>
+            <option value="djikstra">Djikstra</option>
+            <option value="random">Random</option>
+          </select>
+          <div class="input-group-append">
+            <button type="button" id="visualizeButton" class="btn btn-success"> Visualize! </button>
+
+          </div>
+        </div>
+      </form>
+
+      <div class="dropdown mr-auto">
+        <button class="btn btn-secondary dropdown-toggle newFeature" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Maze
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <button class="dropdown-item" type="button" id = "recuresiveMaze">Recursive</button>
+          <button class="dropdown-item" type="button" id = "randomMaze">Random</button>
+        </div>
+      </div>
+
+      <button type="button" id="clearBoard" class="btn btn-outline-secondary btn-sm"> Clear Board </button>
+      <button type="button" id="clearPath" class="btn btn-outline-secondary btn-sm mx-3"> Clear Path </button>
+
+      <span class="navbar-text mr-3">
+      Change Size of the Grid:
+      </span>
+
+      <form class="form-inline">
+        <input type="range" id="rangePicker" class="slider" value="26" min="3" max="40" step = "2">
+      </form>
+    </nav>
+    <div class="d-flex position-absolute justify-content-center align-items-center tutorial-cover" >
+      <div class="tutorial p-5">
+        <h1>Welcome to My AwesomePathfinder!</h1>
+        <p>This visualizer was built to demostrate diffrent pathfinding algorithms in more visual manner. Here the starting node,
+        which is me <img src="img/start.jpg" width = "30px"alt="" align = "middle"> searches for (not always) shortest path to
+        my girlfriend <img src="img/finish.jpg" alt="" width = "30px" align = "middle">. </p>
+        <p>Some useful tips:</p>
+        <ul>
+          <li>You can change the size of the grid using the scroller at the top-right corner.</li>
+          <li>To choose the algorithm you can use the dropdown at the top-left corner. </li>
+          <li>You can change position of start and finish using drag-and-drop. </li>
+          <li>You can <b>click</b> on the grid cell to set the wall, none of the algorithms can go through the wall.</li>
+          <li>You can <b>shift + click</b> on the grid cell to set the water obstacle, some of the algorithms (<b>A*</b> and <b>Djikstra</b>) will try to avoid these obstacles when possible, others will ignore them (<b>BFS</b>, <b>DFS</b> and <b>Random</b>).</li>
+          <li>Be sure to try <b>Maze</b> builders next to algorithm dropdown!</li>
+        </ul>
+        <p>This app was inspired by Clement Mihailescu and <a href="https://clementmihailescu.github.io/Pathfinding-Visualizer/#">his pathfinder</a>. Enjoy!</p>
+        <button type="button" name="button" class="btn btn-success btn-lg float-right" onclick="parentNode.parentNode.remove()">Go to Pathfinder!</button>
+      </div>
+    </div>
+
+
+
+
+    <div id = "root">
+
+    </div>
+
+  </body>
+</html>

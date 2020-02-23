@@ -1,0 +1,142 @@
+body {
+  margin:0;
+}
+
+header {
+  padding: 10px;
+
+}
+
+.newFeature{
+  animation-name: newShine;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 1;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  background: white;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #28a745;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #28a745;
+  cursor: pointer;
+}
+.tutorial-cover {
+  background: rgba(0, 0, 0, 0.4);
+  height: 100vh;
+  width: 100vw;
+}
+.tutorial {
+  background-color: white;
+  max-width: 50%;
+  max-height: 75%;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.grid{
+  width: auto;
+}
+
+.gridTable {
+  width: 100%;
+  height: 100vh;
+  border-collapse: collapse;
+}
+
+td {
+  border: 1px solid lightblue;
+}
+
+.start {
+  background-color: red;
+  background-image: url("img/start.jpg");
+  background-size: cover;
+}
+
+.finish {
+  background-color: blue;
+  background-image: url("img/finish.jpg");
+  background-size: cover;
+}
+.onDrag {
+  background-color: lightgrey;
+}
+
+.visited {
+  background-color: lightblue;
+  animation-name: visited;
+  animation-duration: 2s;
+  border: 1px solid silver;
+}
+
+.onPath {
+  background-color: lightgreen;
+  animation-name: path;
+  animation-duration: 1s;
+}
+
+.wall {
+  background-color: #283747;
+  animation-name: wall;
+  animation-duration: 0.5s;
+  border: 1px solid #283747;
+}
+
+.weight {
+  background-image: url("img/water.png");
+  background-size: cover;
+  animation-name: wall;
+  animation-duration: 0.5s;
+}
+@keyframes visited {
+  0%  {background-color:lightblue; transform: scale(0.1);}
+  25%  {background-color: lightgreen;}
+  50%  {background-color:lightblue;}
+  75% {background-color:lightgreen;}
+  100% {background-color:lightblue;}
+}
+
+@keyframes path {
+  50%  {transform: scale(1.5);}
+  100%  {transform: scale(1.0);}
+}
+
+@keyframes newShine {
+  0%  {background-color:lightblue;}
+  25%  {background-color: lightgreen;}
+  50%  {background-color:pink;}
+  75% {background-color:lightgreen;}
+  100% {background-color:lightblue;}
+}
+
+
+@keyframes wall {
+  5%  {transform: scale(0.75);}
+  50%  {transform: scale(1.1);}
+  100%  {transform: scale(1);}
+}
